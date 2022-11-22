@@ -14,6 +14,9 @@ struct HomeScreen: View {
                 Text("There are no Data!")
                     .font(.system(.title, design: .rounded))
                     .fontWeight(.semibold)
+                Text("Are you a productive person? I think you should click the add button and add a bunch of items to your todo list!")
+                    .font(.system(.headline))
+                    .padding(.bottom, 20)
             }
         }
     }
