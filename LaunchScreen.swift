@@ -31,8 +31,14 @@ struct LaunchScreen: View {
       
 }
 
+
 struct LaunchScreen_Previews: PreviewProvider {
     static var previews: some View {
         LaunchScreen()
     }
 }
+//struct LiquidSwipe: Shape {
+//    func path(in rect: CGRect) -> Path{
+//        return Path{}
+//    }
+//}
