@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
-// liquid swipe offset
-@State var offset: CGSize = .zero
+
 struct LaunchScreen: View {
+    // liquid swipe offset
+    @State var offset: CGSize = .zero
     var body: some View {
         
         ZStack{
@@ -20,7 +21,17 @@ struct LaunchScreen: View {
                 .overlay(
                     Image(systemName: "chevron.left")
                         .font(.largeTitle)
-                        .offset(y :65)
+                    // for draggesture to identify
+                        .frame(width: 50, height: 50)
+                        .contentShape(Rectangle())
+                        .gesture(DragGesture().onChanged({(value) in
+                            
+                            
+                            
+                        }).onEnded({ (value) in
+                            
+                        }))
+                        .offset(x: 20, y :45)
                     
                     ,alignment: .topTrailing
                 )
