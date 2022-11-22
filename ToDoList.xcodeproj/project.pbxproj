@@ -11,6 +11,7 @@
 		ACF56D70292CC1920008C44E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF56D6F292CC1920008C44E /* ContentView.swift */; };
 		ACF56D72292CC1920008C44E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF56D71292CC1920008C44E /* Assets.xcassets */; };
 		ACF56D75292CC1920008C44E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF56D74292CC1920008C44E /* Preview Assets.xcassets */; };
+		ACF56D7C292CC1C00008C44E /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF56D7B292CC1C00008C44E /* LaunchScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		ACF56D6F292CC1920008C44E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ACF56D71292CC1920008C44E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF56D74292CC1920008C44E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ACF56D7B292CC1C00008C44E /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 		ACF56D61292CC1920008C44E = {
 			isa = PBXGroup;
 			children = (
+				ACF56D7B292CC1C00008C44E /* LaunchScreen.swift */,
 				ACF56D6C292CC1920008C44E /* ToDoList */,
 				ACF56D6B292CC1920008C44E /* Products */,
 			);
@@ -139,6 +142,7 @@
 			files = (
 				ACF56D70292CC1920008C44E /* ContentView.swift in Sources */,
 				ACF56D6E292CC1920008C44E /* ToDoListApp.swift in Sources */,
+				ACF56D7C292CC1C00008C44E /* LaunchScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
