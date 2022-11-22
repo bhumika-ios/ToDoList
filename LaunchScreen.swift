@@ -13,7 +13,18 @@ struct LaunchScreen: View {
         ZStack{
             Color("Green")
                 .edgesIgnoringSafeArea(.all)
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            VStack{
+                Image(systemName: "checkmark")
+                    .resizable()
+                    .frame(width: 100,height: 100)
+                    .foregroundColor(.white)
+                    .padding()
+                Text("Doing Things...")
+                    .font(.system(size: 26, weight: .semibold, design: .serif))
+                    .foregroundColor(.white)
+                   // .bold()
+            }
+        
         }
         
     }
