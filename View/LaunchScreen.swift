@@ -14,6 +14,7 @@ struct LaunchScreen: View {
             Color("Green")
                 .clipShape(LiquidSwipe())
                 .edgesIgnoringSafeArea(.all)
+                .padding(.trailing)
             
             VStack{
                 Image(systemName: "checkmark")
