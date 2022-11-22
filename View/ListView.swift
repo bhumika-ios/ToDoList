@@ -32,10 +32,13 @@ struct ListView: View {
             }
         }
         .navigationTitle("Todo List 📝")
+        
         .navigationBarItems(
             leading: EditButton(),
             trailing: NavigationLink("Add", destination: AddView())
         )
+//        .foregroundColor(Color("Green"))
+//        .fontWeight(.semibold)
     }
       
 }
