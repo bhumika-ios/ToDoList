@@ -19,7 +19,7 @@ struct HomeScreen: View {
                 Text("Are you a productive person? I think you should click the add button and add a bunch of items to your todo list!")
                     .font(.system(.headline))
                     .padding(.bottom, 20)
-                NavigationLink(destination:){
+                NavigationLink(destination: AddView()){
                     Text("Add Something 🥳")
                         .font(.system(.headline))
                         .foregroundColor(.white)
