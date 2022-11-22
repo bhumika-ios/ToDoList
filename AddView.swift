@@ -39,6 +39,14 @@ struct AddView: View {
         .navigationTitle("Add an Data 🖋")
         .alert(isPresented: $showAlert, content: getAlert)
     }
+    private func isTextAppropriate() -> Bool {
+        if textFieldText.count < 3 {
+            alertTitle = "Your new todo data must be at least 3 characters long!! 😨😰"
+            showAlert.toggle()
+            return false
+        }
+        return true
+    }
     private func getAlert() -> Alert {
         return Alert(title: Text(alertTitle))
     }
