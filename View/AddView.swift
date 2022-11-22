@@ -24,7 +24,7 @@ struct AddView: View {
                     .cornerRadius(10)
                 
                 Button {
-                    //self.saveButtonPressed()
+                    self.saveButtonPressed()
                 } label: {
                     Text("save".uppercased())
                         .font(.headline)
