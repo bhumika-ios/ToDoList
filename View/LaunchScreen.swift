@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-
+// liquid swipe offset
+@State var offset: CGSize = .zero
 struct LaunchScreen: View {
     var body: some View {
         
@@ -14,7 +15,17 @@ struct LaunchScreen: View {
             Color("Green")
                 .clipShape(LiquidSwipe())
                 .edgesIgnoringSafeArea(.all)
+            // arrow...
+            
+                .overlay(
+                    Image(systemName: "chevron.left")
+                        .font(.largeTitle)
+                        .offset(y :65)
+                    
+                    ,alignment: .topTrailing
+                )
                 .padding(.trailing)
+            
             
             VStack{
                 Image(systemName: "checkmark")
