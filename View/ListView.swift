@@ -45,6 +45,6 @@ struct ListView_Previews: PreviewProvider {
         NavigationView{
             ListView()
         }
-        .environmentObject(DataViewModel)
+        .environmentObject(DataViewModel())
     }
 }
