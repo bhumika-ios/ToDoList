@@ -31,11 +31,20 @@ struct ListView: View {
                 .listStyle(.plain)
             }
         }
+        .navigationTitle("Todo List 📝")
+        .navigationBarItems(
+            leading: EditButton(),
+            trailing: NavigationLink("Add", destination: AddView())
+        )
     }
+      
 }
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        NavigationView{
+            ListView()
+        }
+        
     }
 }
