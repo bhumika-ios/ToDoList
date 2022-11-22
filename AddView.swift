@@ -10,6 +10,8 @@ import SwiftUI
 struct AddView: View {
     //MARK: - Variables
     @State private var textFieldText: String = ""
+    @State private var alertTitle: String = ""
+    @State private var showAlert: Bool = false
     var body: some View {
         ScrollView {
             VStack {
@@ -34,7 +36,13 @@ struct AddView: View {
             }
             .padding(14)
         }
+        .navigationTitle("Add an Data 🖋")
+        .alert(isPresented: $showAlert, content: getAlert)
     }
+    private func getAlert() -> Alert {
+        return Alert(title: Text(alertTitle))
+    }
+    
 }
 
 struct AddView_Previews: PreviewProvider {
