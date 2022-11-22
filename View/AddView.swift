@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddView: View {
     //MARK: - Variables
+    @EnvironmentObject private var dataViewModel: DataViewModel
+    @Environment (\.dismiss) private var dismiss
     @State private var textFieldText: String = ""
     @State private var alertTitle: String = ""
     @State private var showAlert: Bool = false
@@ -39,6 +41,12 @@ struct AddView: View {
         .navigationTitle("Add an Data 🖋")
         .alert(isPresented: $showAlert, content: getAlert)
     }
+    private func saveButtonPressed() {
+        if isTextAppropriate() {
+            dataViewModel.addData(title: textFieldText)
+            dismiss.callAsFunction()
+        }
+    }
     private func isTextAppropriate() -> Bool {
         if textFieldText.count < 3 {
             alertTitle = "Your new todo data must be at least 3 characters long!! 😨😰"
@@ -58,6 +66,6 @@ struct AddView_Previews: PreviewProvider {
         NavigationView{
             AddView()
         }
-       
+        .environmentObject(DataViewModel())
     }
 }
