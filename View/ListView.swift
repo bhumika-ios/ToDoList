@@ -11,7 +11,26 @@ struct ListView: View {
     //MARK: - Variables
     @EnvironmentObject var dataViewModel: DataViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            if dataViewModel.data.isEmpty {
+                HomeScreen()
+                    .transition(AnyTransition.opacity.animation(.easeIn))
+            } else {
+                List {
+                    ForEach(dataViewModel.data) { data2 in
+                        ListRowView(data: data2)
+                            .onTapGesture {
+                                withAnimation(.linear) {
+                                    dataViewModel.updateData(datas: data2)
+                                }
+                            }
+                    }
+                    .onDelete(perform: dataViewModel.removeData(at:))
+                    .onMove(perform: dataViewModel.moveData(from:to:))
+                }
+                .listStyle(.plain)
+            }
+        }
     }
 }
 
