@@ -10,6 +10,8 @@ import SwiftUI
 struct LaunchScreen: View {
     // liquid swipe offset
     @State var offset: CGSize = .zero
+    @StateObject var dataViewModel = DataViewModel()
+    @State var showHome = false
     var body: some View {
         
         ZStack{
@@ -32,11 +34,22 @@ struct LaunchScreen: View {
                             }
                             
                         }).onEnded({ (value) in
+                            let screen = UIScreen.main.bounds
                             withAnimation(.spring()){
-                                offset = .zero
+                                //validating
+                                if -offset.width > screen.width / 2{
+                                    //removing view...
+                                    offset.width = -screen.height
+                                    showHome .toggle()
+                                }else{
+                                    offset = .zero
+                                }
+                                
                             }
                         }))
                         .offset(x: 20, y :45)
+                    //hiding while dragging starts...
+                        .opacity(offset == .zero ? 1 : 0)
                     
                     ,alignment: .topTrailing
                 )
@@ -53,8 +66,23 @@ struct LaunchScreen: View {
                     .font(.system(size: 26, weight: .semibold, design: .serif))
                     .foregroundColor(.white)
                    // .bold()
+               
             }
-        
+            if showHome{
+                NavigationView{
+                    ListView()
+                    
+                    
+//                        .onTapGesture {
+//                            withAnimation(.spring()){
+//                                offset = .zero
+//                                showHome.toggle()
+//                            }
+//                        }
+                }
+                .navigationViewStyle(.stack)
+                .environmentObject(dataViewModel)
+            }
         }
         
     }
@@ -70,12 +98,17 @@ struct LaunchScreen_Previews: PreviewProvider {
 struct LiquidSwipe: Shape {
     //getting offset value
     var offset: CGSize
+    //animating Path...
+    var animatableData: CGSize.AnimatableData{
+        get{return offset.animatableData}
+        set{offset.animatableData = newValue}
+    }
     func path(in rect: CGRect) -> Path{
         return Path{path in
             //when user moves left...
             //increasing size both in top and bottom...
             //so it will create a liquidswipe effect..
-            let width = rect.width + offset.width
+            let width = rect.width + (-offset.width > 0 ? offset.width : 0)
             //first constructing rectangle shape..
             
             path.move(to: CGPoint(x: 0, y: 0))
@@ -86,12 +119,16 @@ struct LiquidSwipe: Shape {
             //now constructing curve shape...
             
                 //from
-            
-            path.move(to: CGPoint(x: rect.width, y: 80))
+            let from = 80 + (offset.width)
+            path.move(to: CGPoint(x: rect.width, y: from > 80 ? 80 : from))
+            //also add height
+            var to = 180 + (offset.height) + (-offset.width)
+            to = to < 180 ? 180 : to
             
             //mid betwween 80-180..
             let mid : CGFloat = 80 + ((180 - 80) / 2)
-            path.addCurve(to: CGPoint(x: rect.width, y: 180), control1: CGPoint(x: width - 50, y: mid), control2: CGPoint(x: width - 50, y: mid))
+            
+            path.addCurve(to: CGPoint(x: rect.width, y: to), control1: CGPoint(x: width - 50, y: mid), control2: CGPoint(x: width - 50, y: mid))
         }
     }
 }

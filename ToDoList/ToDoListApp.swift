@@ -9,14 +9,14 @@ import SwiftUI
 
 @main
 struct ToDoListApp: App {
-    @StateObject var dataViewModel = DataViewModel()
+    //@StateObject var dataViewModel = DataViewModel()
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                ListView()
-            }
-            .navigationViewStyle(.stack)
-            .environmentObject(dataViewModel)
+          //  NavigationView {
+                LaunchScreen()
+           // }
+//            .navigationViewStyle(.stack)
+//            .environmentObject(dataViewModel)
         }
     }
 }
