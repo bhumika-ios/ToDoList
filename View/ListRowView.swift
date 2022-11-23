@@ -13,10 +13,10 @@ struct ListRowView: View{
     
     
     var body: some View{
-   
+        ZStack{
             HStack {
                 Image(systemName: data.isCompleted ? "checkmark.circle": "circle")
-                    .foregroundColor(data.isCompleted ? .green : .red)
+                    .foregroundColor(data.isCompleted ? .red : .green)
                 VStack(alignment:.leading){
                     Text(data.title)
                         .strikethrough(data.isCompleted)
@@ -27,17 +27,20 @@ struct ListRowView: View{
                         .foregroundColor(.gray)
                         .font(.system(size: 16))
                         .multilineTextAlignment(.leading)
-                       // .padding(.trailing,230)
-                   
+                    // .padding(.trailing,230)
+                    
                 }
                 Spacer()
                 Text(data.date , style: .date)
+                    .font(.system(size: 14))
                 
             }
-            
+            .padding(.vertical,1)
+        }
+            .navigationBarItems(leading: EditButton())
         
        // .padding(.horizontal,15)
-        .padding(.vertical, 15)
+            
 //        .background{
 //            RoundedRectangle(cornerRadius:15, style: .continuous)
 //                .fill(.gray.opacity(0.1))
