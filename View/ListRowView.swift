@@ -31,6 +31,8 @@ struct ListRowView: View{
                    
                 }
                 Spacer()
+                Text(data.date , style: .date)
+                
             }
             
         
@@ -45,8 +47,8 @@ struct ListRowView: View{
 
     //MARK: - Preview
 struct ListRowView_Previews: PreviewProvider{
-    static var data1 = DataModel(title: "First Data!",status: "Status first", isCompleted: false)
-    static var data2 = DataModel(title: "Second Data!",status: "status second",isCompleted: true)
+    static var data1 = DataModel(title: "First Data!",status: "Status first", date: Date(), isCompleted: false)
+    static var data2 = DataModel(title: "Second Data!",status: "status second",date: Date(), isCompleted: true)
     static var previews: some View {
         Group {
             ListRowView(data: data1)

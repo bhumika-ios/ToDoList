@@ -14,6 +14,7 @@ struct AddView: View {
     @State private var textFieldText: String = ""
     @State private var text1FieldText: String = ""
     @State private var alertTitle: String = ""
+    @State var date = Date()
     @State private var showAlert: Bool = false
     var body: some View {
         ScrollView {
@@ -28,6 +29,10 @@ struct AddView: View {
                     .frame(height: 55)
                     .background(Color(uiColor: .systemGray5))
                     .cornerRadius(10)
+                DisclosureGroup("Date") {
+                    DatePicker("", selection: $date)
+                        .datePickerStyle(GraphicalDatePickerStyle())
+                }
                 Button {
                     self.saveButtonPressed()
                 } label: {
@@ -49,7 +54,7 @@ struct AddView: View {
     }
     private func saveButtonPressed() {
         if isTextAppropriate() {
-            dataViewModel.addData(title: textFieldText, status: text1FieldText)
+            dataViewModel.addData(title: textFieldText, status: text1FieldText, date: date)
             dismiss.callAsFunction()
         }
     }

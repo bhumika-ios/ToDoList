@@ -14,6 +14,7 @@ final class DataViewModel: ObservableObject{
             saveData()
         }
     }
+    
     private let dataKey: String = "Data_list"
     //MARK: - Init
     init() {
@@ -37,8 +38,8 @@ final class DataViewModel: ObservableObject{
         data.move(fromOffsets: from, toOffset: to)
     }
     
-    func addData(title: String, status: String) {
-        let newData = DataModel(title: title,status: status, isCompleted: false)
+    func addData(title: String, status: String, date: Date) {
+        let newData = DataModel(title: title,status: status,date: date, isCompleted: false)
         data.append(newData)
     }
     
