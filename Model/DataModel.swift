@@ -9,16 +9,18 @@ import Foundation
 struct DataModel: Identifiable, Codable {
     let id: String
     let title: String
+    let status: String
     let isCompleted: Bool
     
-    init(id: String = UUID().uuidString ,title: String, isCompleted: Bool) {
+    init(id: String = UUID().uuidString ,title: String,status: String, isCompleted: Bool) {
         self.id = id
         self.title = title
+        self.status = status
         self.isCompleted = isCompleted
     }
     
     
     func updateCompletion() -> DataModel {
-        return DataModel(title: self.title, isCompleted: !self.isCompleted)
+        return DataModel(title: self.title,status: self.status, isCompleted: !self.isCompleted)
     }
 }

@@ -37,8 +37,8 @@ final class DataViewModel: ObservableObject{
         data.move(fromOffsets: from, toOffset: to)
     }
     
-    func addData(title: String) {
-        let newData = DataModel(title: title, isCompleted: false)
+    func addData(title: String, status: String) {
+        let newData = DataModel(title: title,status: status, isCompleted: false)
         data.append(newData)
     }
     

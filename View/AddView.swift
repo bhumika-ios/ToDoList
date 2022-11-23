@@ -12,6 +12,7 @@ struct AddView: View {
     @EnvironmentObject private var dataViewModel: DataViewModel
     @Environment (\.dismiss) private var dismiss
     @State private var textFieldText: String = ""
+    @State private var text1FieldText: String = ""
     @State private var alertTitle: String = ""
     @State private var showAlert: Bool = false
     var body: some View {
@@ -22,7 +23,11 @@ struct AddView: View {
                     .frame(height: 55)
                     .background(Color(uiColor: .systemGray5))
                     .cornerRadius(10)
-                
+                TextField("Type something here...", text: $text1FieldText)
+                    .padding(.horizontal)
+                    .frame(height: 55)
+                    .background(Color(uiColor: .systemGray5))
+                    .cornerRadius(10)
                 Button {
                     self.saveButtonPressed()
                 } label: {
@@ -44,12 +49,12 @@ struct AddView: View {
     }
     private func saveButtonPressed() {
         if isTextAppropriate() {
-            dataViewModel.addData(title: textFieldText)
+            dataViewModel.addData(title: textFieldText, status: text1FieldText)
             dismiss.callAsFunction()
         }
     }
     private func isTextAppropriate() -> Bool {
-        if textFieldText.count < 3 {
+        if textFieldText.count < 3 && text1FieldText.count < 3{
             alertTitle = "Your new todo data must be at least 3 characters long!! 😨😰"
             showAlert.toggle()
             return false
