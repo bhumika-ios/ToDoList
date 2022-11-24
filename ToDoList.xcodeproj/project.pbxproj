@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC5B0ED3292F7C3000B8B914 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5B0ED2292F7C3000B8B914 /* NotificationHandler.swift */; };
 		ACF56D6E292CC1920008C44E /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF56D6D292CC1920008C44E /* ToDoListApp.swift */; };
 		ACF56D70292CC1920008C44E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF56D6F292CC1920008C44E /* ContentView.swift */; };
 		ACF56D72292CC1920008C44E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF56D71292CC1920008C44E /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC5B0ED2292F7C3000B8B914 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		ACF56D6A292CC1920008C44E /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF56D6D292CC1920008C44E /* ToDoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListApp.swift; sourceTree = "<group>"; };
 		ACF56D6F292CC1920008C44E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,9 +48,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC5B0ED1292F7C0F00B8B914 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				AC5B0ED2292F7C3000B8B914 /* NotificationHandler.swift */,
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
 		ACF56D61292CC1920008C44E = {
 			isa = PBXGroup;
 			children = (
+				AC5B0ED1292F7C0F00B8B914 /* Handler */,
 				ACF56D83292CD13E0008C44E /* View */,
 				ACF56D82292CD1350008C44E /* Model */,
 				ACF56D81292CD1240008C44E /* ViewModel */,
@@ -189,6 +200,7 @@
 				ACF56D6E292CC1920008C44E /* ToDoListApp.swift in Sources */,
 				ACF56D7C292CC1C00008C44E /* LaunchScreen.swift in Sources */,
 				ACF56D89292CD2410008C44E /* DataViewModel.swift in Sources */,
+				AC5B0ED3292F7C3000B8B914 /* NotificationHandler.swift in Sources */,
 				ACF56D85292CD1610008C44E /* DataModel.swift in Sources */,
 				ACF56D8D292CD6A30008C44E /* ListView.swift in Sources */,
 			);
