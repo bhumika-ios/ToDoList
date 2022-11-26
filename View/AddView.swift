@@ -14,7 +14,9 @@ struct AddView: View {
     @State private var textFieldText: String = ""
     @State private var text1FieldText: String = ""
     @State private var alertTitle: String = ""
-    @State var date = Date()
+    @State private var selectedDate = Date()
+    let notify = NotificationHandler()
+   
     @State private var showAlert: Bool = false
     var body: some View {
         ScrollView {
@@ -29,11 +31,16 @@ struct AddView: View {
                     .frame(height: 55)
                     .background(Color(uiColor: .systemGray5))
                     .cornerRadius(10)
-                DisclosureGroup("Date") {
-                    DatePicker("", selection: $date)
-                        .datePickerStyle(GraphicalDatePickerStyle())
-                }
+                
+                    DatePicker("Pick a Date", selection: $selectedDate, in: Date()...)
+                        //.datePickerStyle(GraphicalDatePickerStyle())
+                
                 Button {
+//                    notify.sendNotification(date: Date(), type: "time",timeInterval: 5, title: "hi..", body: "5 sec. notification message")
+                    notify.sendNotification(date: selectedDate, type: "date", title: textFieldText, body: text1FieldText)
+                    
+                    notify.askNotification()
+                    
                     self.saveButtonPressed()
                 } label: {
                     Text("save".uppercased())
@@ -45,16 +52,17 @@ struct AddView: View {
                         .cornerRadius(10)
                 }
                 
+                
             }
             .padding(14)
         }
-        .navigationTitle("Add an Data 🖋")
+        .navigationTitle("Add Data 🖋")
         
         .alert(isPresented: $showAlert, content: getAlert)
     }
     private func saveButtonPressed() {
         if isTextAppropriate() {
-            dataViewModel.addData(title: textFieldText, status: text1FieldText, date: date)
+            dataViewModel.addData(title: textFieldText, status: text1FieldText, date: selectedDate)
             dismiss.callAsFunction()
         }
     }
